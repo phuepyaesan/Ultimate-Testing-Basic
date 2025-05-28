@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Javascript Data Type</h1>
+    <script>
+      let name = "Alice";
+      let greeting = "Hello Alice !";
+
+      let age = 30;
+      let price = 19.99;
+
+      let isLoggedIn = true;
+      let isAdmin = false;
+
+      let score;
+      console.log(score);
+      let selectedUser = null;
+      console.log(selectedUser);
+
+      let user = {
+        name: "John",
+        age: 30,
+        isMember: true,
+      };
+
+      console.log(typeof name);
+      console.log(typeof age);
+      console.log(typeof score);
+      console.log(typeof isAdmin);
+      console.log(typeof selectedUser);
+      console.log(typeof user);
+
+      let number = [1, 2, 3];
+      let fruits = ["banana", "mange", "apple"];
+      let mixed = [42, "hello", true, null, { name: "Alice" }];
+      let matrix = [
+        [1, 2],
+        [3, 4],
+      ];
+      console.log(fruits[0]);
+      console.log(mixed[4].name);
+      fruits.push("orange");
+      fruits.pop();
+      fruits.unshift("cherry");
+      fruits.shift();
+      console.log(fruits.length);
+      console.log(Array.isArray(fruits));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Array object method example</h1>
+    <script>
+      let fruits = ["apple", "mango", "banana"];
+      fruits.push("orange");
+      // console.log(fruits);
+      fruits.pop();
+
+      fruits.unshift("cherry");
+      // console.log(fruits);
+      fruits.shift();
+
+      fruits.includes("banana");
+      fruits.splice(1, 2);
+      const fruitJoin = fruits.join(",");
+      console.log("Result" + fruitJoin);
+
+      // for (let i = 0; i < fruits.length; i++) {
+      //   console.log(fruits[i]);
+      // }
+      // for (let fruit of fruits) {
+      //   console.log(fruit);
+      // }
+      //    fruits.forEach(function(fruit)){
+      //      console.log(fruit);
+
+      //    }
+      fruits.forEach((fruit) => {
+        console.log(fruit);
+      });
+
+      let person = {
+        name: "Alice",
+        age: 20,
+        greet() {
+          console.log("Hello My name is " + this.name);
+        },
+      };
+      console.log(person.name);
+      console.log(person["age"]);
+      person.greet();
+
+      let users = [
+        { name: "Bob", age: "20" },
+        { name: "Tom", age: "30" },
+        { name: "John", age: "15" },
+      ];
+
+      users.forEach((user) => {
+        console.log("Name is " + user.name + " " + "Age is " + user.age);
+      });
+
+      let colour = ["blue", "green", "red"];
+      let [first, second] = colour;
+      console.log(first);
+      console.log(second);
+
+      let car = {
+        brand: "Toyota",
+        model: "2022",
+      };
+      let { brand, model } = car;
+      console.log(brand);
+      console.log(model);
+    </script>
+  </body>
+</html>
