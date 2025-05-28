@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS Class's private Example</title>
+  </head>
+  <body>
+    <h1>JS Class's private Example</h1>
+    <script>
+      // Lesson 8: Private Fields
+      class Car {
+        #brand;
+        #year;
+
+        constructor(brand, year) {
+          this.#brand = brand;
+          this.#year = year;
+        }
+
+        getInfo() {
+          return `Brand: ${this.#brand}, Year: ${this.#year}`;
+        }
+      }
+    </script>
+  </body>
+</html>

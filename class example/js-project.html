@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Vehicle Management System</h1>
+    <script>
+      class Vehicle {
+        constructor(brand, year) {
+          this.brand = brand;
+          this.year = year;
+        }
+        getInfo() {
+          return `${this.brand}  (${this.year})`;
+        }
+
+        getAge() {
+          return new Date().getFullYear() - this.year;
+        }
+
+        static compareAge(vehicle1, vehicle2) {
+          return vehicle1.getAge() - vehicle2.getAge();
+        }
+      }
+
+      class Truck extends Vehicle {
+        constructor(brand, year, loadCapacity) {
+          super(brand, year);
+          this.loadCapacity = this.loadCapacity;
+        }
+        getInfo() {
+          return `${super.getInfo()} -load : ${this.loadCapacity} tons `;
+        }
+      }
+
+      class Motorcycle extends Vehicle {
+        constructor(brand, year, type) {
+          super(brand, year);
+          this.type = type;
+        }
+        getInfo() {
+          return `${super.getInfo()} -Type : ${this.type} `;
+        }
+      }
+
+      const truck = new Truck("Toyota", 2018, 18);
+      const bike = new Motorcycle("Yamaha", 2020, "Sport");
+      console.log(truck.getInfo());
+      console.log(bike.getInfo());
+      const newer = Vehicle.compareAge(truck, bike) > 0 ? "bike" : "tuck";
+      console.log(`The ${newer} is newer`);
+    </script>
+  </body>
+</html>
