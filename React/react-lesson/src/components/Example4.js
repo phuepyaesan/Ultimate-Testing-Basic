@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 export default function Person() {
-  const [name, setName] = useState("Mg Mg");
+  const [name, setName] = useState("Mg Mg and me");
   const [date, setDate] = useState(new Date());
   return (
     <div>
