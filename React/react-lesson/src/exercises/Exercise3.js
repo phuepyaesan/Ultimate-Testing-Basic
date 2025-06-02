@@ -14,6 +14,7 @@ export default class Fruit extends React.Component {
         <h2>Fruits Data</h2>
         <span>Friut Name : {this.state.name} ,</span>
         <span>price :{this.state.price}</span>
+        <hr />
       </div>
     );
   }

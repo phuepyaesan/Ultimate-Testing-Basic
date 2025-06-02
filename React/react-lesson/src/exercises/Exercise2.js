@@ -5,6 +5,7 @@ export default function Chick() {
     <div>
       <h2>Click this button</h2>
       <button>Click me</button>
+      <hr />
     </div>
   );
 }

@@ -6,6 +6,7 @@ export default class User extends React.Component {
     return (
       <div>
         <h2>User Information Collection</h2>
+        <hr />
       </div>
     );
   }

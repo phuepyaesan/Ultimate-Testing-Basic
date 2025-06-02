@@ -10,6 +10,7 @@ export default function Add() {
       <h2>Add Item</h2>
       <div>{item}</div>
       <div>{date.toString()}</div>
+      <hr />
     </div>
   );
 }
