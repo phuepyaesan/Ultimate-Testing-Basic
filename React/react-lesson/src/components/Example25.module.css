@@ -1,0 +1,93 @@
+.container {
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.input {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.addButton,
+.updateButton,
+.cancelButton,
+.editButton,
+.deleteButton {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.addButton {
+  background-color: #4caf50;
+  color: white;
+}
+
+.updateButton {
+  background-color: #2196f3;
+  color: white;
+}
+
+.cancelButton {
+  background-color: #f44336;
+  color: white;
+}
+
+.editButton {
+  background-color: #ffc107;
+  color: black;
+  margin-right: 5px;
+}
+
+.deleteButton {
+  background-color: #e91e63;
+  color: white;
+}
+
+.taskList {
+  list-style: none;
+  padding: 0;
+}
+
+.taskItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.taskName {
+  font-weight: bold;
+}
+
+.taskCategory {
+  color: gray;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.emptyMsg {
+  text-align: center;
+  color: #777;
+}
