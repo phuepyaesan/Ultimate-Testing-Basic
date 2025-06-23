@@ -9,6 +9,10 @@ import NavLayout from "@/component/NavLayout/NavLayout";
 import RowAndColumnSpacing from "@/component/RowAndColumnSpacing";
 import BasicForm from "@/component/BasicForm/BasicForm";
 import ContactForm from "@/component/ContactForm/ContactForm";
+import Dashboard from "./dashboard/page";
+import DrawerNav from "@/component/DrawerNav";
+import TodoMUI from "./todo-list/page";
+
 export default function Home() {
   return (
     <div>
@@ -30,7 +34,10 @@ export default function Home() {
       </NavLayout> */}
       {/* <RowAndColumnSpacing /> */}
       {/* <BasicForm /> */}
-      <ContactForm />
+      {/* <ContactForm /> */}
+      {/* <Dashboard /> */}
+      {/* <DrawerNav /> */}
+      <TodoMUI />
     </div>
   );
 }

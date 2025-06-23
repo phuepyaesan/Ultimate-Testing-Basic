@@ -39,7 +39,8 @@ export default function ContactForm() {
     },
   });
   const onSubmit = (formData) => {
-    console.log("formData", formData);
+    // console.log("formData", formData);
+    console.log("formData", { ...formData });
     console.log("Name Input Data", formData.name);
     reset();
   };
