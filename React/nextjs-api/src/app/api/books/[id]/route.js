@@ -1,3 +1,4 @@
+import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import * as yup from "yup";
 
@@ -10,7 +11,12 @@ const schema = yup.object().shape({
 export async function PUT(req, { params }) {
   try {
     const body = await req.json();
-    await schema.validate(body, { abortEarly: false });
+    const bookId = parseInt(params.id);
+    const validatedData = await schema.validate(body, { abortEarly: false });
+    const book = await prisma.book.update({
+      where: { id: bookId },
+      data: validatedData,
+    });
     return NextResponse.json({
       message: "Book is successfully Updated!",
       bodyData: body,
@@ -40,21 +46,23 @@ export async function PUT(req, { params }) {
 }
 
 export async function DELETE(req, { params }) {
-  const bookId = params.id;
+  const bookId = parseInt(params.id);
+  await prisma.book.delete({
+    where: { id: bookId },
+  });
   return NextResponse.json({
     message: "Book is successfully deleted!",
     bookId,
   });
 }
-
+//Get Book Detail
 export async function GET(req, { params }) {
-  const bookId = params.id;
-  const book = {
-    id: bookId,
-    title: "The Pragmatic Programmer",
-    author: "Andrew Hunt",
-    published_year: "2000",
-  };
+  const bookId = parseInt(params.id);
+  const book = await prisma.book.findUnique({
+    where: {
+      id: bookId,
+    },
+  });
 
   return NextResponse.json(book);
 }

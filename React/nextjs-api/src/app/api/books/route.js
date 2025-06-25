@@ -1,30 +1,13 @@
+import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import * as yup from "yup";
 
+//Get Book List
 export async function GET() {
-  const BookData = [
-    {
-      id: 1,
-      title: "The Programmer",
-      author: "Andrew Hunt",
-      published_year: "1999",
-    },
-    {
-      id: 2,
-      title: "The Pragmatic Programmer",
-      author: "Andrew Hunt",
-      published_year: "2000",
-    },
-    {
-      id: 3,
-      title: "Travel",
-      author: "John Smith",
-      published_year: "2012",
-    },
-  ];
+  const books = await prisma.book.findMany();
   return NextResponse.json({
     message: "Get Book List",
-    BookData,
+    books,
   });
 }
 const schema = yup.object().shape({
@@ -37,7 +20,10 @@ const schema = yup.object().shape({
 export async function POST(req) {
   try {
     const body = await req.json();
-    await schema.validate(body, { abortEarly: false });
+    const validatedData = await schema.validate(body, { abortEarly: false });
+    const book = await prisma.book.create({
+      data: validatedData,
+    });
     return NextResponse.json({
       message: "Book is successfully Created!",
       bodyData: body,
