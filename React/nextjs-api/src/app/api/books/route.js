@@ -5,10 +5,7 @@ import * as yup from "yup";
 //Get Book List
 export async function GET() {
   const books = await prisma.book.findMany();
-  return NextResponse.json({
-    message: "Get Book List",
-    books,
-  });
+  return NextResponse.json(books);
 }
 const schema = yup.object().shape({
   title: yup.string().required("title is required"),

@@ -10,8 +10,8 @@ import {
   FormHelperText,
 } from "@mui/material";
 import { schema } from "./validationSchema";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup"; //for validation
+import { useForm, Controller } from "react-hook-form"; //for form data manage
 const ROLES = [
   { value: "admin", label: "Admin" },
   { value: "user", label: "User" },

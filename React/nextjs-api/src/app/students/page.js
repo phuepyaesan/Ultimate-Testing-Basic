@@ -1,4 +1,4 @@
-"use clitent";
+"use client";
 
 import {
   Box,
@@ -18,18 +18,28 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import axios from "axios";
+import { useEffect, useState } from "react";
 
 export default function StudentList() {
+  //for assign api response data
+  const [students, setStudents] = useState([]);
+  //api call function
   const getStudentList = async () => {
     try {
-      console.log("getStudentList()");
-
+      // console.log("getStudentList()");
+      //axios from frontend api call package //default json acess
       const response = await axios.get("/api/students");
-      console.log(response.data);
+      setStudents(response.data);
+      // console.log(response.data);
     } catch (error) {
       console.error(error);
     }
   };
+  //call api call function
+  //console.log("Students", students);
+  useEffect(() => {
+    getStudentList();
+  }, []);
   return (
     <Box padding={2}>
       <Stack alignItems="flex-end">
@@ -56,32 +66,34 @@ export default function StudentList() {
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableRow>
-              <TableCell>1</TableCell>
-              <TableCell>Su Su</TableCell>
-              <TableCell>09786767567</TableCell>
-              <TableCell>5.7.2002</TableCell>
-              <TableCell>U Hla</TableCell>
-              <TableCell>19</TableCell>
-              <TableCell>Female</TableCell>
-              <TableCell>Hlaing</TableCell>
-              <TableCell>Computer Science</TableCell>
-              <TableCell align="center">
-                <Link href={"/students/1"} passHref>
+            {students.map((student, index) => (
+              <TableRow key={student.id}>
+                <TableCell>{index + 1}</TableCell>
+                <TableCell>{student.name}</TableCell>
+                <TableCell>{student.phone}</TableCell>
+                <TableCell>{student.dob}</TableCell>
+                <TableCell>{student.father_name}</TableCell>
+                <TableCell>{student.age}</TableCell>
+                <TableCell>{student.gender}</TableCell>
+                <TableCell>{student.address}</TableCell>
+                <TableCell>{student.major}</TableCell>
+                <TableCell align="center">
+                  <Link href={`/students/${student.id}`} passHref>
+                    <IconButton>
+                      <VisibilityIcon />
+                    </IconButton>
+                  </Link>
+                  <Link href={`students/${student.id}/edit`} passHref>
+                    <IconButton>
+                      <EditIcon />
+                    </IconButton>
+                  </Link>
                   <IconButton>
-                    <VisibilityIcon />
+                    <DeleteIcon />
                   </IconButton>
-                </Link>
-                <Link href={"/students/1/edit"} passHref>
-                  <IconButton>
-                    <EditIcon />
-                  </IconButton>
-                </Link>
-                <IconButton>
-                  <DeleteIcon />
-                </IconButton>
-              </TableCell>
-            </TableRow>
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </TableContainer>
